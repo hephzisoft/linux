@@ -1,0 +1,133 @@
+Basics
+cd - change directory
+ls - list folders
+mkdir - create directory/folder
+touch - create file
+cd .. - move backward in the directries
+cp - copy (cp file/folder_name ./directory to paste in/)
+mv - move/cut (mv file/folder_name ./ directory to paste in/)
+rm - delete file
+rm -r ./folder_name/ (delete folder}
+sudo yum install software_name - installing software.
+sudo su - Change to admin(super user)
+exit - Exit admin user or if a normal user runs it, close terminal
+pwd - show present working directory
+whoami - Check which user you're in (who am i)
+date - print out date
+history - check history of all the commands run
+who - get users and system name
+w - get user's details
+vi - read file
+i - edit file
+:x - save and quit file
+:q - quit file
+echo - print something out
+-n - give the output without new line(echo -n "something")
+-e - enable backslash
+\n - new line
+\t - horizontal tab(tab)
+\v - vertical tab
+bash - open bash terminal
+Take this example:
+	x=45
+	echo $x
+That's how to assign and print a variable value
+Assuming:
+	x=45
+	y=10
+	echo $((x+y))
+That's how to perform arithmetic operations.
+We can declare global variables with the export keyword.
+i.e.
+	export y=10
+This will make y 10 in both the terminal and the bash.
+
+! - get command using the first two letters you put in. (i.e !pw will run pwd assuming it's already in your history)
+set +o - get all exabled and disabled commands
+set +o name - enable 'name'
+set -o name - disable 'name'
+unset - assuming a variable has been assigned and you want to remove the assigned value, you'll use the unset keyword
+tty - show the terminal name
+-P - Name of printer you want to print from
+-# - Number of copies you want to print (e.g. lpr -P printer_name -#5 note.txt)
+lpr - line printing command
+timedatectl - get full time and date information
+localectl list-locales - get all the default locales on the linux system.
+(ctrl button) c - incase exit doesn't work, type ctrl c
+localectl status - check locale status
+localectl set-locale LANG=(locale language) - change locale
+localectl list-keymaps - list out the key maps.
+localectl set-keymaps LANG=(language) - change keyboard locale
+expr - expressions
+e.g.
+	expr 2 \+ 4
+	it will print out the sum of 2 and 4
+	same applies to subtraction, multiplication, division and modulus.
+	
+	expr num = num
+	This is a logical operation 'AND' being carried out with expr.
+	If it returns 1, it means the equation is true. if it returns 0, the equation is false.
+	This also works for greater than and less than.
+
+	expr num \| num
+	This is a logical operation 'OR' being carried out. The expression above will return either of the numbers.
+
+	assuming a variable a = demilade.
+	expr length $a is going to return the length of variable a which in this case is 8.
+.sh - is a text extension that would make a file only be able to run on a linux terminal. (e.g. note.sh)
+nano - is also a text editor on linux. To use it we would run nano file_name.
+header file - this is a kind of file that makes the content in the file only run on a linux terminal. (#!/bin/bash) is a header file.
+vim - is another text editor also. To use it, we would run vim file_name.
+
+
+There are three ownership levels in linux.
+a.) User: Is the owner of the file.
+b.) Process
+c.) Group: Contains two or more users.
+
+
+   	   Users				Group
+1.)Uses system distinctive ID		Share the same permissions
+2.)Is the owner of the file.		Contains two or more users
+3.)They are identified using daymon	They are identified using GID
+   process
+
+
+
+sudo useradd (username) - Create another user.
+
+
+Understanding file permission;
+	A normal user cannot view the shadow. Only a root user or super
+	user can view the shadow.
+
+Modifying permission
+	Add or remove permission using '+' or '-' sudo -s or sudo su
+	4 Read permission
+	2 Write permission
+	1 Execute permission
+	4+1+2=7 All permission
+	4+2=6 Read and Write
+	4+1=5 Read and Execute
+	Ownership permission (chow)
+	Modification(chmod)
+
+
+chmod u+x (filename) - change modification for user
+chmod gg+x (filename) - change modification for group
+chmod g-w - remove write permission from group.(g+w to add)
+chmod g-r - remove read permission from group.(g+r to add)
+
+ls -l (filename) - view permissions.
+
+chmod o+r / o-r (filename) - add / remove read permission from file.
+chmod o+w / o-w (filename) - add / remove write permission from file.
+
+chmod 777 (filename) - add all permissions to user, group and execute.
+chmod 556 (filename) - user and group can read and execute only while process and read and write only.
+
+		chmod number-number-number (filename) (note all numbers are joined together)
+			|	|	|
+		      User     Group   Process
+
+grep (word) (filename) - search for word in file.
